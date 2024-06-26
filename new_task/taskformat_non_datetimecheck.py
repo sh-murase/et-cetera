@@ -126,13 +126,26 @@ def to_hyphen_dateformat(s_input_date : str) -> str:
     #num_listには、年月日順に入っているため、年月日文字消去
     #pattern matchしているため、listに要素があれば、数字と年月日のいづれかの文字は必ず入っている
     num_list = [x[:-1] for x in num_list]
-
-    if len(num_list) == 0:
+    form_len = 3
+    for element in num_list:
+      form_len += len(element) 
+    
+    # num_listが空の場合、form_len=3であり、区切り文字が含まれている場合は、
+    # 年月日の数字(最小3文字)+区切り文字となるため、len(s_date) != form_lenがTrueとなる
+    if len(s_date) != form_len :
       s_date = s_date.lower()
       etc_meaningful_pattern = r'[\d]+year|[\d]+month|[\d]+day'
       num_list = re.findall(etc_meaningful_pattern, s_date)
       num_list = [re.findall(r'^[\d]+',x)[0] for x in num_list]
-      
+
+      form_len2 = 12
+      for element2 in num_list:
+        form_len2 += len(element2) 
+
+      if len(s_date) != form_len2 and len(num_list) != 0:
+        print(f'{s_input_date}:年月日の情報として処理できないため、処理終了')
+        return None
+
       if len(num_list) == 0:
       
         if len(data_set_list) == 0 :
@@ -174,5 +187,3 @@ if __name__ == '__main__':
   res = to_hyphen_dateformat(val)
 
   print(f'入力値:{val}・出力値:{res}')
-
-
