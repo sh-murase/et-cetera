@@ -31,6 +31,6 @@ testpython_fromfile_new.py
 　　　　pandas , pytest 両モジュールがインストールされている必要があります。   
   
 wareki_data.csv  
-　　　　->和暦データ変換用データのcsvファイル  
+　　->和暦データ変換用データのcsvファイル  
   
   
