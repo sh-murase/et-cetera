@@ -25,7 +25,7 @@ taskformat_non_datetimechek.py
   
 testpython_fromfile_new.py  
 　　->pytestでのテストを行うスクリプト  
-　　　　$ pytest -v testpython_fromfile_new.py --durations=0  
+　　　　$ pytest -vv testpython_fromfile_new.py --durations=0  
 　　　　にて、実行  
 　　　※pytest(testpython_fromfile_new.py)の実行にあたっては、実行環境に、  
 　　　　pandas , pytest 両モジュールがインストールされている必要があります。   
