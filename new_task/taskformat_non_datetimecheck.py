@@ -130,7 +130,7 @@ def to_hyphen_dateformat(s_input_date : str) -> str:
     if len(num_list) == 0:
       s_date = s_date.lower()
       etc_meaningful_pattern = r'[\d]+year|[\d]+month|[\d]+day'
-      num_list = re.findall(meaningful_pattern, s_date)
+      num_list = re.findall(etc_meaningful_pattern, s_date)
       num_list = [re.findall(r'^[\d]+',x)[0] for x in num_list]
       
       if len(num_list) == 0:
